@@ -4,4 +4,5 @@ class ImageString {
   static const String preferenceBg = 'assets/images/background_fade.png';
   static const String uploadImage = 'assets/images/upload_image.png';
 
+  
 }
