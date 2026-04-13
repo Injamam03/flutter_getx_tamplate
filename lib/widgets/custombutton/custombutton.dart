@@ -27,7 +27,7 @@ class CustomButton extends StatelessWidget {
 
   final double fontSize;
   final FontWeight? fontWeight;
-  final EdgeInsetsGeometry? padding; //
+  final EdgeInsetsGeometry? padding; //-=-=--=--==-=-=
 
   const CustomButton({
     super.key,
@@ -52,7 +52,7 @@ class CustomButton extends StatelessWidget {
     this.iconSpacing = 10,
 
     this.fontSize = 16,
-    this.fontWeight = FontWeight.w600, //
+    this.fontWeight = FontWeight.w600, //=--=-==-=--==-=-=--==-=-=
     this.padding = const EdgeInsets.all(10),
   });
 
@@ -95,7 +95,7 @@ class CustomButton extends StatelessWidget {
                       color: textColor,
                       fontSize: fontSize,
                       fontWeight: fontWeight,
-                       fontFamily: "SFPro",
+                      fontFamily: "SFPro",
                     ),
               ),
             ],
@@ -105,26 +105,3 @@ class CustomButton extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

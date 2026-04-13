@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_tamplete/screens/controller/Theatre_Controller.dart';
 import 'package:get/get.dart';
-
 import 'model/theatre_model.dart';
 
 class TheatreScreen extends StatelessWidget {
@@ -87,7 +86,7 @@ class _AppBarWidget extends StatelessWidget {
 
 // ─────────────────────────────────────────
 // Category Tabs
-// ─────────────────────────────────────────
+
 class _CategoryTabsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -98,7 +97,7 @@ class _CategoryTabsWidget extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 16),
         itemCount: c.categories.length,
-        separatorBuilder: (_, __) => const SizedBox(width: 10),
+        separatorBuilder: (_, _) => const SizedBox(width: 10),
         itemBuilder: (_, i) {
           final selected = c.selectedCategoryIndex.value == i;
           return GestureDetector(
@@ -115,7 +114,7 @@ class _CategoryTabsWidget extends StatelessWidget {
                 border: Border.all(
                   color: selected
                       ? const Color(0xFFF5A623)
-                      : Colors.white.withOpacity(0.4),
+                      : Colors.white.withAlpha(80),
                   width: 1.2,
                 ),
               ),
@@ -167,20 +166,6 @@ class _BooksSection extends StatelessWidget {
     final double y1 = 145 ;        // middle: a bit lower
     final double y0 =250;               // left: lowest
 
-    // Dot positions (bottom center of each card)
-    final double cx0 = x0 + w0 / 2;
-    final double cx1 = x1 + w1 / 2;
-    final double cx2 = x2 + w2 / 2;
-
-    final double dy0 = y0 + h0 + 6;
-    final double dy1 = y1 + h1 + 6;
-    final double dy2 = y2 + h2 + 6;
-
-    // Info tile vertical positions — diagonal, same staircase as cards
-    // left info lowest, right info highest
-    final double infoY0 = 0;
-    final double infoY1 = 0;
-    final double infoY2 = 0;
 
     // Info tile height area
     const double infoAreaHeight = 120.0;
@@ -192,7 +177,7 @@ class _BooksSection extends StatelessWidget {
       return SingleChildScrollView(
         child: Column(
           children: [
-            // ── Cards stack ──
+            // Cards stack
             SizedBox(
               width: screenWidth,
               height: totalHeight,
@@ -228,9 +213,6 @@ class _BooksSection extends StatelessWidget {
             ),
 
             const SizedBox(height: 6),
-
-            // ── Info tiles — diagonal positions matching cards ──
-            // Left info: bottom-left, middle info: center, right info: top-right
             SizedBox(
               width: screenWidth,
               height: infoAreaHeight +280,
@@ -267,9 +249,8 @@ class _BooksSection extends StatelessWidget {
   }
 }
 
-// ─────────────────────────────────────────
 // Book Card
-// ─────────────────────────────────────────
+// ───────────────────────────────────
 class _BookCard extends StatelessWidget {
   final TheatreItem item;
   final double width;
@@ -288,7 +269,7 @@ class _BookCard extends StatelessWidget {
         border: Border.all(color: const Color(0xFFF5A623), width: 1.5),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFFF5A623).withOpacity(0.3),
+            color: const Color(0xFFF5A623).withAlpha(55),
             blurRadius: 10,
           ),
         ],
@@ -298,7 +279,7 @@ class _BookCard extends StatelessWidget {
         child: Image.asset(
           item.imageAsset,
           fit: BoxFit.cover,
-          errorBuilder: (_, __, ___) => Container(
+          errorBuilder: (_, _, _) => Container(
             color: const Color(0xFF1A2A3A),
             child: const Center(
               child: Icon(Icons.image, color: Colors.white24, size: 32),
@@ -337,7 +318,7 @@ class _InfoTile extends StatelessWidget {
         Text(
           item.description,
           style: TextStyle(
-            color: Colors.white.withOpacity(0.75),
+            color: Colors.white.withAlpha(150),
             fontSize: 10,
             height: 1.4,
           ),
