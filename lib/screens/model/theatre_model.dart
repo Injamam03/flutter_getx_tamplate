@@ -12,5 +12,10 @@ class TheatreItem {
 
 class CategoryModel {
   final String name;
-  CategoryModel({required this.name});
+  final String backgroundAsset;
+
+  CategoryModel({
+    required this.name,
+    required this.backgroundAsset,
+  });
 }
