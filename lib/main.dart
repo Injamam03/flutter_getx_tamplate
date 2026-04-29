@@ -1,47 +1,42 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter_getx_tamplete/constant/app_const_string.dart';
-import 'package:flutter_getx_tamplete/screens/practice.dart';
+import 'package:flutter_getx_tamplete/routes/app_routes.dart';
+import 'package:flutter_getx_tamplete/routes/app_routes_file.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
-import 'bookScreen/bookScreen.dart';
-
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: BookScreen(),
-    );
-  }
-}
+    return ScreenUtilInit(
+      designSize: const Size(375, 812), //
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return GetMaterialApp(
+          title: 'Kabir App',
+          debugShowCheckedModeBanner: false,
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+          /// ── Theme ──
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF2563EB)),
+            useMaterial3: true,
+          ),
 
-  final String title;
+          /// ── Routing ──
+          initialRoute: AppRoutes.splashScreen,
+          getPages: appRouteFile,
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(ConstString.complete)),
-
+          /// ── Default Transition ──
+          defaultTransition: Transition.fadeIn,
+        );
+      },
     );
   }
 }

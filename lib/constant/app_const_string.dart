@@ -4,6 +4,8 @@ class ConstString {
   static const demoText = "Demo Text";
   static const signUp = "Sign up";
   static const signIn = "Sign in";
+  static const createAccount = "Create Account";
+
   static const logIn = "Log In";
   static const register = "Register";
   static const complete = "Complete";
