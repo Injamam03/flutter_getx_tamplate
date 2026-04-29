@@ -91,10 +91,10 @@ class _SplashScreenState extends State<SplashScreen>
                   /// Logo
                   Image.asset(
                     ImageString.appLogo,
-                    width: 130.w,
-                    height: 130.h,
+                    width: 130,
+                    height: 130,
                   ),
-                  Gap(height: 20.h),
+                  Gap(height: 20),
                 ],
               ),
             ),

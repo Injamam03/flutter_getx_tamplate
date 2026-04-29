@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 
+import '../screens/baseScreen/onboardingScreen/onboardingScreen.dart';
 import '../screens/baseScreen/splashScreen/splashScreen.dart';
 import 'app_routes.dart';
 
@@ -7,7 +8,7 @@ List<GetPage> appRouteFile = <GetPage>[
 
   //////////// Auth Part ////////////
   GetPage(name: AppRoutes.splashScreen, page: () => const SplashScreen(),),
-  // GetPage(name: AppRoutes.onBoardingScreen, page: () => const OnBoardingScreen(),),
+  GetPage(name: AppRoutes.onBoardingScreen, page: () => const OnBoardingScreen(),),
 
   // GetPage(name: AppRoutes.chooseRoleScreen, page: () => const ChooseRoleScreen(),),
   //
